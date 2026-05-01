@@ -10,7 +10,7 @@ i'm currently a software engineer at
 <span style="background: #ff0033; color: black">YouTube</span>. i graduated with a B.S. in Computer Science from <span style="background: #bf5700; color: black">UT Austin</span>.
 
 
-## interests:
+## interests
 here are a few things that i enjoy:
 
   - playing and watching basketball
