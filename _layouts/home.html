@@ -8,34 +8,7 @@ layout: default
   {%-endif-%}
 </header>
 
-<div>
-<h2>currently</h2>
-<p>{{ site.data.home.currently }}</p>
-</div>
-
-<div>
-<h2>interests</h2>
-here are some things that i like:
-{{ site.data.home.interests.blurb }}
-<ul>
-  {%-for item in site.data.home.interests-%}
-    <li>
-    {{item}}
-    </li>
-  {%-endfor-%}
-</ul>
-</div>
-
-<div>
-<center>
-  <figure>
-  <img src="img/paniniclose.jpg" width="330" height="300">
-  <figcaption>my cherished cat, panini. look how happy she is to see me!</figcaption>
-  </figure>
-</center>
-</div>
-
-
-{%-include menu_item.html collection=site.data.menu.entries-%}
-
 {{ content }}
+
+<!-- do i need this? -->
+{%-include menu_item.html collection=site.data.menu.entries-%}
