@@ -126,6 +126,7 @@ img {
  .menu ul { margin-top: 12px;  margin-bottom: 12px;  padding-left: 0px;  list-style-type: none;  text-align: right; }
  .menu ul li { display: inline;  margin-left: 12px; }
  .menu ul li a { text-decoration: none;  color: var(--text-color); }
+ .menu ul li a .current { text-decoration: none; color: var(--selection-text); background-color: var(--selection-background); }
  .menu ul li a:hover { text-decoration: none; color: var(--selection-text); background-color: var(--selection-background); }
 
 figure {
