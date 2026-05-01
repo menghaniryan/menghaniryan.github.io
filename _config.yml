@@ -47,6 +47,8 @@ plugins:
 header_pages:
 - index.md
 - about.md
+- projects.md
+- writeups.md
 
 # Exclude from processing.
 # The following items will not be processed, by default.
