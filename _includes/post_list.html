@@ -45,7 +45,7 @@
     Finally, reassign posts to filtered_posts after we are done filtering.
   {% endcomment %}
   
-  {%-assign posts = filtered_posts-%}
+  {%-assign posts = filtered_posts | sort: url -%}
 {%-else-%}
   {%-assign posts = site.posts-%}
 {%-endif-%}
