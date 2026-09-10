@@ -1,5 +1,51 @@
-{%-if include.category-%}
-  {%-assign posts = site.categories[include.category]-%}  
+{%-if include.categories-%}
+  {%-assign posts = site.posts-%}
+  
+
+  {% comment %}
+    The following code finds all posts that match every category from the passed in categories parameter to this  component. I don't know Liquid Jekyll well enough so I'll comment everything so that future me understands it.
+  {% endcomment %}
+
+  {% comment %}
+    Create an empty array called `filtered_posts`. Liquid doesn't have native syntax to create an empty array, so we have to create an empty substring and split it by a comma, which outputs an empty array for us.
+  {% endcomment %}
+
+  {%- assign filtered_posts = "" | split: "," -%}
+
+  {% comment %}
+    Loop through all the posts on the site. For each post, we check "does this post contain every category in categories?". If it doesn't, we assign good_post to false and break out of the inner category loop. At the very end, we check if good_post is true, and if so, we append the post to the filtered_posts array.
+  {% endcomment %}
+
+
+  {%- for post in posts -%}
+    {%- assign good_post = true -%}
+    {%- for category in include.categories -%}
+
+      {% comment %}
+        I couldn't find a way to do "not contains", so we just use the else block to check for not contains.
+      {% endcomment %}
+
+      {%- if post.categories contains category -%}
+      {%-else-%}
+        {%- assign good_post = false -%}     
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if good_post == true -%}
+
+      {% comment %}
+        Append the post to filtered_posts
+      {% endcomment %}
+
+      {%-assign filtered_posts = filtered_posts | push: post-%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {% comment %}
+    Finally, reassign posts to filtered_posts after we are done filtering.
+  {% endcomment %}
+  
+  {%-assign posts = filtered_posts-%}
 {%-else-%}
   {%-assign posts = site.posts-%}
 {%-endif-%}
